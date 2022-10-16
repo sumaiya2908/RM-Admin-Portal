@@ -1,0 +1,67 @@
+@import '../../App.scss';
+
+
+h3 {
+	margin-top: 3rem;
+}
+
+table {
+	margin-top: 2.25rem;
+	border: $border1;
+	border-radius: 7px 7px 0px 0px;
+}
+
+.table-head {
+	td {
+		border-bottom: $border2;
+		font-weight: 600;
+		color: $grey-100;
+		padding: 1rem 2rem;
+
+	}
+}
+
+.item-row {
+	td {
+		min-width: 16rem;
+		border-bottom: $border2;
+		color: $grey-100;
+		padding: 1rem 2rem;
+
+	}
+	.title {
+		min-width: 8rem;
+	}
+
+	.description {
+		max-width: 38rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	&:last-child {
+		td {
+			border: 0;
+		}
+	}
+}
+
+.table-footer {
+	text-align: right;
+	margin-top: 2rem;
+	button {
+		margin: auto 5px;
+		padding: 0.5rem;
+		font-size: 12px;
+		border: $border1;
+		background: #fff;
+		color: $grey-100;
+
+		&.active {
+			border: 1px black solid;
+			color: #000;
+		}
+
+	}
+}

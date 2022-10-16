@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+$primary: #0B69FF;
+$bg-grey: #f5f5f5;
+$light-grey: #D7DFE9;
+$light-grey-24: #d7dfe93d;
+$grey-100: #7E858E;
+$dark-blue: #171F46;
+$tertiary: #2DCA73;
+$border1: 1px solid $light-grey; 
+$border2: 3px solid $light-grey;
+
+body, html {
+	margin: 0;
+	box-sizing: border-box;
+	background-color: $bg-grey;
+	overflow-x: hidden;
+	font-family: 'DM Sans', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $primary;
+}
+
+.app {
+	max-width: 80%;
+	margin: 3rem auto;
+}
+
+button {
+	cursor: pointer;
+}

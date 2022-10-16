@@ -1,0 +1,49 @@
+@import '../../App.scss';
+
+.resource-details {
+	.details {
+		display: flex;
+		gap: 1rem;
+		.icon {
+			width: 64px;
+			height: 64px;
+			border: $border2;
+			border-radius: 50%;
+
+			img {
+				width: 64px;
+				height: 64px;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.text {
+		.title {
+			font-size: 32px;
+			color: $dark-blue;
+		}
+		.link {
+			color: $primary;
+		}
+
+	}
+
+	.description {
+		color: $grey-100;
+		margin-top: 1rem;
+
+	}
+}
+
+.primary-button {
+	margin-top: 3rem;
+	background-color: $primary;
+	color: #fff;
+	padding: 0.5rem 1.2rem 0.3rem;
+	border: none;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 600;
+	border-radius: 4px;
+}

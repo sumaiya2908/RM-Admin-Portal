@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './App.scss'
 import { Navbar } from './components'
-import { Home, Resource } from './pages'
+import { AddItem, Home, Resource } from './pages'
 
 function App() {
 
@@ -13,6 +13,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route path="/resource/:id" element={<Resource />} />
+					<Route path="/add-item" element={<AddItem />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

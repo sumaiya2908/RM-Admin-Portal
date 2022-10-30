@@ -1,43 +1,46 @@
-@import '../../App.scss';
-
-
-h3 {
-	margin-top: 3rem;
-}
+@import "../../App.scss";
 
 table {
 	margin-top: 2.25rem;
 	border: $border1;
 	border-radius: 7px 7px 0px 0px;
+	border-collapse: collapse;
 }
 
 .table-head {
-	td {
+	text-align: left;
+
+	th {
 		border-bottom: $border2;
 		font-weight: 600;
 		color: $grey-100;
 		padding: 1rem 2rem;
-
+	}
+	.id {
+		display: none;
 	}
 }
 
-.item-row {
+.item-row,
+tr {
+	border-bottom: $border1 !important;
+
 	td {
-		min-width: 16rem;
-		border-bottom: $border2;
 		color: $grey-100;
 		padding: 1rem 2rem;
-
-	}
-	.title {
-		min-width: 8rem;
 	}
 
 	.description {
-		max-width: 38rem;
+		max-width: 33rem;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+	.link {
+		width: 20rem;
+	}
+	.id {
+		display: none;
 	}
 
 	&:last-child {
@@ -48,11 +51,27 @@ table {
 }
 
 .table-footer {
-	text-align: right;
 	margin-top: 2rem;
-	button {
-		margin: auto 5px;
-		padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	@media screen and  (max-width:500px) {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.action-buttons {
+		.button-secondary {
+			background-color: $secondary;
+			margin-right: 2rem;
+		}
+
+		.button-tertiary {
+			background-color: $red;
+		}
+	}
+
+	.pagination button {
+		// padding: 0.4rem 0.7rem 0.3rem;
 		font-size: 12px;
 		border: $border1;
 		background: #fff;
@@ -62,6 +81,20 @@ table {
 			border: 1px black solid;
 			color: #000;
 		}
+	}
+}
 
+.table-heading {
+	display: flex;
+	margin-top: 3rem;
+	justify-content: space-between;
+	@media screen and  (max-width:500px) {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.heading {
+		font-size: 2rem;
+		font-weight: 500;
 	}
 }

@@ -1,8 +1,14 @@
 @import "../../App.scss";
 
 .navbar {
-	width: 100%;
+	display: flex;
+	justify-content: space-between;
 	background-color: #fff;
 	padding: 1rem 3rem;
 	border-bottom: $border1;
+}
+
+.button-secondary {
+	background-color: $secondary;
+	margin-top: 0.2rem;
 }

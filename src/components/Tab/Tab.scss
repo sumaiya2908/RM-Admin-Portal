@@ -1,0 +1,24 @@
+@import '../../App.scss';
+
+
+.tabs-container {
+	display: flex;
+	justify-content: center ;
+	margin-bottom: 2rem;
+
+	.tab {
+		width: 200px;
+		font-size: 14px;
+		line-height: 24px;
+		text-align: center;
+		padding: 0.5rem;
+		letter-spacing: 1px;
+		cursor: pointer;
+		border: $border1;
+		background-color: $light-grey-24;
+	}
+	.tab.selected {
+		background-color: $primary;
+		color: #fff;
+	}
+}

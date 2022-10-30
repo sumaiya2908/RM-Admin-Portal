@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Loader from '../Loader/Loader'
-import ResourceCard from './ResourceCard'
+import SearchIcon from "../../assets/search-icon.svg";
 
 const ResourceContainer = () => {
-	const [resources, setResources] = useState([])
-	const url = 'https://media-content.ccbp.in/website/react-assignment/resources.json';
+	const [query, setQuery] = useState("");
+	const [searchData, setSearchData] = useState([]);
 
 	useEffect(() => {
 		getRequest(url, setResources)
 	}, [])
 
+	useEffect(() => {
+		searchQuery(query, setSearchData, resources)
+	}, [query]);
 	return (
 		<>
 			<Tab setTab={setTag} />

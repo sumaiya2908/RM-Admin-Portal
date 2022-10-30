@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import getRequest from "../../utils/axiosRequest";
 
 import ResourceCard from "./ResourceCard";
 import SearchIcon from "../../assets/search-icon.svg";
 import { searchQuery, tagWiseData } from "../../utils/searchQuery";
 
 const ResourceContainer = () => {
+	const [resources, setResources] = useState([]);
 	const [query, setQuery] = useState("");
 	const [searchData, setSearchData] = useState([]);
+	const url =
+		"https://media-content.ccbp.in/website/react-assignment/resources.json";
 
 	useEffect(() => {
-		getRequest(url, setResources)
+		getRequest(url, setResources);
 	}, [])
 
 	useEffect(() => {

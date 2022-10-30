@@ -1,7 +1,5 @@
-import Axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import getRequest from '../../utils/axiosRequest'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Loader from '../Loader/Loader'
 import ResourceCard from './ResourceCard'
@@ -15,20 +13,36 @@ const ResourceContainer = () => {
 	}, [])
 
 	return (
+		<>
+			<Tab setTab={setTag} />
+			<div className='search-input'>
+				<img src={SearchIcon} className='icon' />
+				<input
+					className='field'
+					type='text'
+					placeholder='Search'
+					onChange={(e) => setQuery(e.target.value)}
+				/>
+			</div>
+
 		<div className='resources-container'>
-			{resources ?
-				resources.map((res, key) => {
+				{resources.length > 0 ? (
+					searchData.map((res, key) => {
 					return (
 						<Link to={`/resource/${res.id}`}>
 							<ResourceCard key={key} resource={res} />
 						</Link>
-					)
+						);
 				})
-
-				: <Loader />
-			}
+				) : (
+					<Loader />
+				)}
+				{searchData.length == 0 ? <div>No data Found</div> : null}
 		</div>
-	)
-}
+		</>
+	);
+};
+
+export default ResourceContainer;
 
 export default ResourceContainer

@@ -7,6 +7,11 @@ const Navbar = () => {
 	return (
 		<div className='navbar'>
 			<Link to="/"><img src={Logo} /></Link>
+			<Link to='/add-item'>
+				<button className='button-secondary'>
+					Add Item
+				</button>
+			</Link>
 		</div>
 	)
 }

@@ -1,6 +1,13 @@
+import React, { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination, useGlobalFilter } from "react-table";
+import { deleteItems } from "../../utils/deleteItems";
+import { toast } from "react-toastify";
 
 const ItemTable = ({ items }) => {
+	const [selectedItems, setSelectedItems] = useState([]);
+	const [isSelected, setIsSelected] = useState(false);
+	const [itemList, updateItems] = useState(items)
+
 	const columns = useMemo(
 		() => [
 			{ Header: "Title", accessor: "title" },
@@ -37,6 +44,30 @@ const ItemTable = ({ items }) => {
 		useGlobalFilter,
 		usePagination
 	);
+
+	useEffect(() => {
+		if (selectedItems.length > 0) setIsSelected(true);
+		else setIsSelected(false);
+
+	}, [selectedItems]);
+
+	const handleSelect = (e) => {
+		if (e.target.checked)
+			setSelectedItems(selectedItems.concat(e.target.id));
+		else
+			setSelectedItems(
+				selectedItems.filter((item) => item !== e.target.id)
+			);
+	};
+
+	const handleDelete = () => {
+		deleteItems(itemList, updateItems, selectedItems)
+		toast.success('Item deleted successfully', {
+			position: toast.POSITION.TOP_RIGHT,
+			autoClose: 5000
+		})
+	}
+
 	return (
 		<div>
 			<h3>Items</h3>

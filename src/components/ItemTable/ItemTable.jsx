@@ -1,11 +1,42 @@
-import React, { useState } from 'react'
-import tablePaginate from '../../utils/tablePaginate';
-import './ItemTable.scss'
-import TableFooter from './TableFooter';
+import { useTable, usePagination, useGlobalFilter } from "react-table";
 
 const ItemTable = ({ items }) => {
-	const [page, setPage] = useState(1);
-	const { slice, range } = tablePaginate(items, page, 6);
+	const columns = useMemo(
+		() => [
+			{ Header: "Title", accessor: "title" },
+			{ Header: "Description", accessor: "description" },
+			{ Header: "Link", accessor: "link" },
+			{ Header: "ID", accessor: "id" }
+		],
+		[]
+	);
+
+	const data = useMemo(() => itemList);
+
+	const {
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		prepareRow,
+		page,
+		canPreviousPage,
+		canNextPage,
+		pageOptions,
+		pageCount,
+		gotoPage,
+		nextPage,
+		previousPage,
+		state: { pageIndex, globalFilter },
+		setGlobalFilter,
+	} = useTable(
+		{
+			columns,
+			data,
+			initialState: { pageIndex: 0, pageSize: 6 },
+		},
+		useGlobalFilter,
+		usePagination
+	);
 	return (
 		<div>
 			<h3>Items</h3>

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import ResourceCard from "./ResourceCard";
 import SearchIcon from "../../assets/search-icon.svg";
+import { searchQuery, tagWiseData } from "../../utils/searchQuery";
 
 const ResourceContainer = () => {
 	const [query, setQuery] = useState("");

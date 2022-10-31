@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -9,7 +9,7 @@ import { AddItem, Home, Resource } from './pages'
 function App() {
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Navbar />
 			<ToastContainer
 			/>
@@ -20,7 +20,7 @@ function App() {
 					<Route path="/add-item" element={<AddItem />} />
 				</Routes>
 			</div>
-		</BrowserRouter>
+		</HashRouter>
 
 	)
 }
